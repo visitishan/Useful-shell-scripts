@@ -16,6 +16,7 @@ InstallPip3=T
 InstallNodejs=T
 InstallNpm=T
 InstallNetspeed=T
+InstallDocker=T
 
 
 # Install Sanpd
@@ -161,6 +162,16 @@ installNetspeed ()
 	fi
 }
 
+# Install Docker
+installDocker ()
+{
+	if [ "X$InstallDocker" = "XT" ]; then
+		sudo apt -y --fix-broken install
+		sudo apt-get -y install docker-ce
+	fi
+}
+
+
 installSnapd
 installAnydesk
 installLivepatch
@@ -175,4 +186,5 @@ installPip3
 installNodejs
 installNpm
 installNetspeed
+installDocker
 sudo apt-get update
